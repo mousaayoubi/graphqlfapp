@@ -6,11 +6,11 @@ import * as serviceWorker from './serviceWorker';
 
 import { ApolloProvider } from 'react-apollo';
 import { ApolloClient } from 'apollo-client';
-import { creatHttpLink } from 'apollo-link-http';
+import { createHttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
 const httpLink = createHttpLink({
-	uri: 'http://34.107.103.216:5000/';
+	uri: 'http://34.107.103.216:5000/'
 });
 
 const client = new ApolloClient({
