@@ -1,25 +1,40 @@
 import React, { Component } from 'react';
 import Link from './Link';
+import gql from 'graphql-tag';
+import { Query } from 'react-apollo';
+
+const FEED_QUERY = gql`
+{
+  feed {
+    links {
+      id
+      createdAt
+      url
+      description
+    }
+  }
+}
+`;
 
 class LinkList extends Component {
-	render() {
-		const linksToRender = [
-			{
-				id: '1',
-				description: 'Prisma turns your database into a graphQL API',
-				url: 'https://www.prismagraphql.com',
-			},
-			{
-				id: '2',
-				description: 'The best graphQL client',
-				url: 'https://www.apollographql.com/docs/react/',
-			},
-		]
+  render() {
+    return (
+      <Query query={FEED_QUERY}>
+        {({ loading, error, data }) => {
+	    if (loading) return 'Loading...';
+	    if (error) return `Error ${error.message}`;
 
-		return (
-			<div>{linksToRender.map(link => <Link key={link.id} link={link} />)}</div>
-		)
-	}
+	  const linksToRender = data.feed.links
+    
+          return (
+            <div>
+              {linksToRender.map(link => <Link key={link.id} link={link} />)}
+            </div>
+          )
+        }}
+      </Query>
+    )
+  }
 };
 
 export default LinkList;

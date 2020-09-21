@@ -10,7 +10,8 @@ import { createHttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
 const httpLink = createHttpLink({
-	uri: 'http://34.107.103.216:5000/'
+	// Update url if needed
+	uri: 'http://34.107.103.216:4000/'
 });
 
 const client = new ApolloClient({
