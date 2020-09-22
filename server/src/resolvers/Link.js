@@ -9,8 +9,4 @@ function votes(parent, args, context) {
 module.exports = {
   postedBy,
   votes,
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 24d953ea884b56c532324db1dc40c94ff58dee27
