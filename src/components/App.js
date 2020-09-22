@@ -7,5 +7,9 @@ class App extends Component {
     return <CreateLink />
   }
 };
+	render() {
+		return <CreateLink />
+	}
+}
 
 export default App;
