@@ -12,6 +12,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 const httpLink = createHttpLink({
 	// Update url if needed
 	uri: 'http://35.242.255.189:4000/'
+});
 
 const client = new ApolloClient({
 	link: httpLink,
